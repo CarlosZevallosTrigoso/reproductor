@@ -168,11 +168,16 @@ body {
 }
 
 /* Jump Controls */
-.jump-controls {
+.jump-controls-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
     width: 100%;
+    margin-bottom: 12px;
+}
+
+.jump-controls-row:last-of-type {
+    margin-bottom: 24px;
 }
 
 .jump-btn {
