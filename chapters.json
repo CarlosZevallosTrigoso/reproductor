@@ -1,52 +1,52 @@
 [
   {
-    "title": "Capítulo 1",
+    "title": "Fundamentos fenomenológicos de la semiosis",
     "file": "./audio/capitulo-01.mp3",
-    "duration": "15:30"
+    "artwork": "./icon-512.png"
   },
   {
-    "title": "Capítulo 2",
+    "title": "La lógica triádica fundamental: objeto-signo-interpretante",
     "file": "./audio/capitulo-02.mp3",
-    "duration": "22:45"
+    "artwork": "./icon-512.png"
   },
   {
-    "title": "Capítulo 3",
+    "title": "Primera tricotomía: la materialidad del signo",
     "file": "./audio/capitulo-03.mp3",
-    "duration": "18:20"
+    "artwork": "./icon-512.png"
   },
   {
-    "title": "Capítulo 4",
+    "title": "Segunda tricotomía: modos de relación con el objeto",
     "file": "./audio/capitulo-04.mp3",
-    "duration": "25:10"
+    "artwork": "./icon-512.png"
   },
   {
-    "title": "Capítulo 5",
+    "title": "Tercera tricotomía: la efectividad del signo",
     "file": "./audio/capitulo-05.mp3",
-    "duration": "20:15"
+    "artwork": "./icon-512.png"
   },
   {
-    "title": "Capítulo 6",
+    "title": "La fórmula avanzada del signo",
     "file": "./audio/capitulo-06.mp3",
-    "duration": "23:00"
+    "artwork": "./icon-512.png"
   },
   {
-    "title": "Capítulo 7",
+    "title": "Interdependencias modales y cruces entre tricotomías",
     "file": "./audio/capitulo-07.mp3",
-    "duration": "19:45"
+    "artwork": "./icon-512.png"
   },
   {
-    "title": "Capítulo 8",
+    "title": "Semiosis como proceso: pragmatismo y acción del signo",
     "file": "./audio/capitulo-08.mp3",
-    "duration": "21:30"
+    "artwork": "./icon-512.png"
   },
   {
-    "title": "Capítulo 9",
+    "title": "Análisis integrados: funcionamiento concreto del signo",
     "file": "./audio/capitulo-09.mp3",
-    "duration": "24:00"
+    "artwork": "./icon-512.png"
   },
   {
-    "title": "Capítulo 10",
+    "title": "Hacia una teoría funcional del significado",
     "file": "./audio/capitulo-10.mp3",
-    "duration": "18:15"
+    "artwork": "./icon-512.png"
   }
 ]
