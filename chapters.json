@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Introducción",
+    "file": "./audio/capitulo-01.mp3",
+    "duration": "15:30",
+    "artwork": "./icon-512.png"
+  },
+  {
+    "title": "Historia y Contexto",
+    "file": "./audio/capitulo-02.mp3",
+    "duration": "22:45",
+    "artwork": "./icon-512.png"
+  },
+  {
+    "title": "Metodología",
+    "file": "./audio/capitulo-03.mp3",
+    "duration": "18:20",
+    "artwork": "./icon-512.png"
+  },
+  {
+    "title": "Análisis Visual",
+    "file": "./audio/capitulo-04.mp3",
+    "duration": "25:10",
+    "artwork": "./icon-512.png"
+  },
+  {
+    "title": "Conclusiones",
+    "file": "./audio/capitulo-05.mp3",
+    "duration": "12:15",
+    "artwork": "./icon-512.png"
+  }
+]

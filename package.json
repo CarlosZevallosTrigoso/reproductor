@@ -1,0 +1,22 @@
+{
+  "name": "audioguia-personal",
+  "version": "1.0.0",
+  "description": "Reproductor web progresivo para audioguías personales",
+  "main": "index.html",
+  "scripts": {
+    "icons": "node generate-icons.js",
+    "serve": "npx http-server -p 8080 -o"
+  },
+  "keywords": [
+    "pwa",
+    "audio",
+    "player",
+    "audioguide",
+    "mobile"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "canvas": "^2.11.2"
+  }
+}

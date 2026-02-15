@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <title>AudioGuía</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- PWA Icons -->
+    <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- Header -->
+        <header class="header">
+            <h1 class="app-title">AUDIOGUÍA</h1>
+            <div class="chapter-info">
+                <div class="chapter-number" id="chapterNumber">Cap. 1</div>
+                <div class="chapter-title" id="chapterTitle">Cargando...</div>
+            </div>
+        </header>
+
+        <!-- Main Player -->
+        <main class="player">
+            
+            <!-- Waveform Visual -->
+            <div class="waveform-container">
+                <canvas id="waveform"></canvas>
+            </div>
+
+            <!-- Time Display -->
+            <div class="time-display">
+                <span class="time-current" id="currentTime">00:00</span>
+                <span class="time-separator">/</span>
+                <span class="time-total" id="totalTime">00:00</span>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container" id="progressContainer">
+                <div class="progress-bar" id="progressBar"></div>
+                <div class="progress-handle" id="progressHandle"></div>
+            </div>
+
+            <!-- Jump Controls (Large) -->
+            <div class="jump-controls">
+                <button class="jump-btn jump-backward-10m" data-jump="-600">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 8V4L8 8l4 4V8z"/>
+                        <path d="M12 8a6 6 0 1 0 0 12 6 6 0 0 0 0-12z"/>
+                    </svg>
+                    <span>10m</span>
+                </button>
+                <button class="jump-btn jump-backward-5m" data-jump="-300">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 8V4L8 8l4 4V8z"/>
+                        <path d="M12 8a6 6 0 1 0 0 12 6 6 0 0 0 0-12z"/>
+                    </svg>
+                    <span>5m</span>
+                </button>
+                <button class="jump-btn jump-backward-1m" data-jump="-60">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 8V4L8 8l4 4V8z"/>
+                        <path d="M12 8a6 6 0 1 0 0 12 6 6 0 0 0 0-12z"/>
+                    </svg>
+                    <span>1m</span>
+                </button>
+                <button class="jump-btn jump-backward-10s" data-jump="-10">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 8V4L8 8l4 4V8z"/>
+                        <path d="M12 8a6 6 0 1 0 0 12 6 6 0 0 0 0-12z"/>
+                    </svg>
+                    <span>10s</span>
+                </button>
+            </div>
+
+            <!-- Play/Pause -->
+            <button class="play-btn" id="playBtn">
+                <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+                <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                </svg>
+            </button>
+
+            <!-- Jump Forward Controls -->
+            <div class="jump-controls">
+                <button class="jump-btn jump-forward-10s" data-jump="10">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 8V4l4 4-4 4V8z"/>
+                        <path d="M12 8a6 6 0 1 1 0 12 6 6 0 0 1 0-12z"/>
+                    </svg>
+                    <span>10s</span>
+                </button>
+                <button class="jump-btn jump-forward-1m" data-jump="60">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 8V4l4 4-4 4V8z"/>
+                        <path d="M12 8a6 6 0 1 1 0 12 6 6 0 0 1 0-12z"/>
+                    </svg>
+                    <span>1m</span>
+                </button>
+                <button class="jump-btn jump-forward-5m" data-jump="300">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 8V4l4 4-4 4V8z"/>
+                        <path d="M12 8a6 6 0 1 1 0 12 6 6 0 0 1 0-12z"/>
+                    </svg>
+                    <span>5m</span>
+                </button>
+                <button class="jump-btn jump-forward-10m" data-jump="600">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 8V4l4 4-4 4V8z"/>
+                        <path d="M12 8a6 6 0 1 1 0 12 6 6 0 0 1 0-12z"/>
+                    </svg>
+                    <span>10m</span>
+                </button>
+            </div>
+
+            <!-- Speed Control -->
+            <div class="speed-control">
+                <span class="speed-label">VELOCIDAD</span>
+                <div class="speed-buttons">
+                    <button class="speed-btn" data-speed="0.5">0.5x</button>
+                    <button class="speed-btn" data-speed="0.75">0.75x</button>
+                    <button class="speed-btn active" data-speed="1">1x</button>
+                    <button class="speed-btn" data-speed="1.25">1.25x</button>
+                    <button class="speed-btn" data-speed="1.5">1.5x</button>
+                    <button class="speed-btn" data-speed="2">2x</button>
+                </div>
+            </div>
+
+            <!-- Chapter Navigation -->
+            <div class="chapter-nav">
+                <button class="nav-btn" id="prevChapter">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                    <span>ANTERIOR</span>
+                </button>
+                <button class="nav-btn" id="nextChapter">
+                    <span>SIGUIENTE</span>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                    </svg>
+                </button>
+            </div>
+
+        </main>
+
+        <!-- Playlist Toggle -->
+        <button class="playlist-toggle" id="playlistToggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="8" y1="6" x2="21" y2="6"/>
+                <line x1="8" y1="12" x2="21" y2="12"/>
+                <line x1="8" y1="18" x2="21" y2="18"/>
+                <line x1="3" y1="6" x2="3.01" y2="6"/>
+                <line x1="3" y1="12" x2="3.01" y2="12"/>
+                <line x1="3" y1="18" x2="3.01" y2="18"/>
+            </svg>
+            <span>CAPÍTULOS</span>
+        </button>
+
+        <!-- Playlist Drawer -->
+        <div class="playlist-drawer" id="playlistDrawer">
+            <div class="playlist-header">
+                <h2>CAPÍTULOS</h2>
+                <button class="close-playlist" id="closePlaylist">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="playlist-content" id="playlistContent">
+                <!-- Chapters will be loaded here -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Audio Element (hidden) -->
+    <audio id="audioPlayer" preload="metadata"></audio>
+
+    <script src="js/player.js"></script>
+</body>
+</html>

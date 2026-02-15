@@ -1,0 +1,507 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --bg-primary: #000000;
+    --bg-secondary: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: #999999;
+    --accent: #ffffff;
+    --border: #333333;
+    --active: #ffffff;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.app-container {
+    max-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+/* Header */
+.header {
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-primary);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.app-title {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.chapter-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.chapter-number {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+}
+
+.chapter-title {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+/* Player */
+.player {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 20px 120px;
+    gap: 32px;
+}
+
+/* Waveform */
+.waveform-container {
+    width: 100%;
+    height: 120px;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+#waveform {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Time Display */
+.time-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 1px;
+}
+
+.time-separator {
+    color: var(--text-secondary);
+}
+
+/* Progress Bar */
+.progress-container {
+    position: relative;
+    width: 100%;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 8px;
+}
+
+.progress-container::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+}
+
+.progress-bar {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    background: var(--accent);
+    border-radius: 2px;
+    width: 0%;
+    z-index: 1;
+    transition: width 0.1s linear;
+}
+
+.progress-handle {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: var(--accent);
+    border-radius: 50%;
+    left: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    transition: transform 0.1s ease;
+}
+
+.progress-container:active .progress-handle {
+    transform: translate(-50%, -50%) scale(1.3);
+}
+
+/* Jump Controls */
+.jump-controls {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    width: 100%;
+}
+
+.jump-btn {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 80px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    color: var(--text-primary);
+    font-family: inherit;
+}
+
+.jump-btn:active {
+    background: var(--accent);
+    color: var(--bg-primary);
+    transform: scale(0.95);
+}
+
+.jump-btn svg {
+    width: 28px;
+    height: 28px;
+}
+
+.jump-btn span {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Play Button */
+.play-btn {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+    color: var(--bg-primary);
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
+}
+
+.play-btn:active {
+    transform: scale(0.92);
+}
+
+.play-btn svg {
+    width: 40px;
+    height: 40px;
+}
+
+/* Speed Control */
+.speed-control {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.speed-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.speed-buttons {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+}
+
+.speed-btn {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 4px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+}
+
+.speed-btn:active,
+.speed-btn.active {
+    background: var(--accent);
+    color: var(--bg-primary);
+    border-color: var(--accent);
+}
+
+/* Chapter Navigation */
+.chapter-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.nav-btn {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    color: var(--text-primary);
+    font-family: inherit;
+}
+
+.nav-btn:active {
+    background: var(--accent);
+    color: var(--bg-primary);
+    transform: scale(0.97);
+}
+
+.nav-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+.nav-btn span {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.nav-btn:disabled:active {
+    transform: none;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+/* Playlist Toggle */
+.playlist-toggle {
+    position: fixed;
+    bottom: 32px;
+    right: 20px;
+    background: var(--accent);
+    border: none;
+    border-radius: 16px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    color: var(--bg-primary);
+    font-family: inherit;
+    transition: transform 0.15s ease;
+}
+
+.playlist-toggle:active {
+    transform: scale(0.95);
+}
+
+.playlist-toggle svg {
+    width: 24px;
+    height: 24px;
+}
+
+.playlist-toggle span {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Playlist Drawer */
+.playlist-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-primary);
+    z-index: 200;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.playlist-drawer.active {
+    transform: translateY(0);
+}
+
+.playlist-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-primary);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.playlist-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.close-playlist {
+    background: none;
+    border: none;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-primary);
+    border-radius: 50%;
+    transition: background 0.15s ease;
+}
+
+.close-playlist:active {
+    background: var(--bg-secondary);
+}
+
+.close-playlist svg {
+    width: 24px;
+    height: 24px;
+}
+
+.playlist-content {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Chapter Item */
+.chapter-item {
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+    background: var(--bg-primary);
+}
+
+.chapter-item:active {
+    background: var(--bg-secondary);
+}
+
+.chapter-item.playing {
+    background: var(--bg-secondary);
+    border-left: 4px solid var(--accent);
+    padding-left: 16px;
+}
+
+.chapter-item-number {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.chapter-item-title {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+}
+
+.chapter-item-duration {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.5px;
+}
+
+/* Loading State */
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    color: var(--text-secondary);
+    font-size: 16px;
+}
+
+/* Responsive adjustments for larger screens */
+@media (min-width: 768px) {
+    .app-container {
+        max-width: 480px;
+        margin: 0 auto;
+        border-left: 1px solid var(--border);
+        border-right: 1px solid var(--border);
+    }
+}
+
+/* PWA Safe Areas */
+@supports (padding: env(safe-area-inset-bottom)) {
+    .player {
+        padding-bottom: calc(120px + env(safe-area-inset-bottom));
+    }
+    
+    .playlist-toggle {
+        bottom: calc(32px + env(safe-area-inset-bottom));
+    }
+}
