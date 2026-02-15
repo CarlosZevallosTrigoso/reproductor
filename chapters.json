@@ -10,7 +10,7 @@
     "artwork": "./icon-512.png"
   },
   {
-    "title": "El interpretante y la dinámica semiótica",
+    "title": "El interpretante y la dinámica de la semiosis",
     "file": "./audio/capitulo-03.mp3",
     "artwork": "./icon-512.png"
   },
@@ -27,6 +27,11 @@
   {
     "title": "Símbolo, convencionalidad y síntesis integradora",
     "file": "./audio/capitulo-06.mp3",
+    "artwork": "./icon-512.png"
+  },
+  {
+    "title": "Metodología aplicada: análisis semiótico integral de casos complejos",
+    "file": "./audio/capitulo-07.mp3",
     "artwork": "./icon-512.png"
   }
 ]
