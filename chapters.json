@@ -1,32 +1,52 @@
 [
   {
-    "title": "Introducción",
+    "title": "Capítulo 1",
     "file": "./audio/capitulo-01.mp3",
-    "duration": "15:30",
-    "artwork": "./icon-512.png"
+    "duration": "15:30"
   },
   {
-    "title": "Historia y Contexto",
+    "title": "Capítulo 2",
     "file": "./audio/capitulo-02.mp3",
-    "duration": "22:45",
-    "artwork": "./icon-512.png"
+    "duration": "22:45"
   },
   {
-    "title": "Metodología",
+    "title": "Capítulo 3",
     "file": "./audio/capitulo-03.mp3",
-    "duration": "18:20",
-    "artwork": "./icon-512.png"
+    "duration": "18:20"
   },
   {
-    "title": "Análisis Visual",
+    "title": "Capítulo 4",
     "file": "./audio/capitulo-04.mp3",
-    "duration": "25:10",
-    "artwork": "./icon-512.png"
+    "duration": "25:10"
   },
   {
-    "title": "Conclusiones",
+    "title": "Capítulo 5",
     "file": "./audio/capitulo-05.mp3",
-    "duration": "12:15",
-    "artwork": "./icon-512.png"
+    "duration": "20:15"
+  },
+  {
+    "title": "Capítulo 6",
+    "file": "./audio/capitulo-06.mp3",
+    "duration": "23:00"
+  },
+  {
+    "title": "Capítulo 7",
+    "file": "./audio/capitulo-07.mp3",
+    "duration": "19:45"
+  },
+  {
+    "title": "Capítulo 8",
+    "file": "./audio/capitulo-08.mp3",
+    "duration": "21:30"
+  },
+  {
+    "title": "Capítulo 9",
+    "file": "./audio/capitulo-09.mp3",
+    "duration": "24:00"
+  },
+  {
+    "title": "Capítulo 10",
+    "file": "./audio/capitulo-10.mp3",
+    "duration": "18:15"
   }
 ]
